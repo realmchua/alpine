@@ -29,8 +29,8 @@ RUN echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main' >>/etc/apk/repos
 
 ########## Maintainer Information
 LABEL cloud.mylinuxbox.vendor="Realm Chua" \
-    cloud.mylinuxbox.version=${VERSION} \
-    cloud.mylinuxbox.build-date=${BUILD_DATE}
+      cloud.mylinuxbox.version=${VERSION} \
+      cloud.mylinuxbox.build-date=${BUILD_DATE}
 
 ########## Dockerfile
 RUN apk add --no-cache su-exec \
