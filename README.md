@@ -10,8 +10,9 @@ An Alpine Linux Image prebuilds with Bash and Gentoo's OpenRC system init servic
 
 Build and maintained by: Realm Chua < realm at mylinuxbox dot cloud>
 
-https://github.com/realmchua/rc-alpine-nginx/
-https://hub.docker.com/repository/docker/realmsg/rc-alpine-nginx/
+https://github.com/realmchua/alpine
+
+https://hub.docker.com/repository/docker/realmsg/alpine/
 
 What is Alpine Linux?
 
