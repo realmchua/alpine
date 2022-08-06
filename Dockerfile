@@ -33,7 +33,6 @@ LABEL cloud.mylinuxbox.vendor="Realm Chua" \
       cloud.mylinuxbox.build-date=$BUILD_DATE
 
 ########## Dockerfile
-
 RUN apk add --no-cache su-exec \
     ca-certificates \
     bash \
