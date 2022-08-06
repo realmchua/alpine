@@ -10,9 +10,6 @@ echo '
 ┃┃┃╰┫┃━┫╭╮┃╰┫┃┃┃┣━━┃╭╯╰╯┃╰╯┃╰━┫╭╮┫┃━┫┃╱┃╰━╯┃╰╯┃┃╰┫╰╯┃┃━┫┃
 ╰╯╰━┻━━┻╯╰┻━┻┻┻╯╰━━╯╰━━━┻━━┻━━┻╯╰┻━━┻╯╱╰━━━┻━━┻┻━┻━━┻━━┻╯'
 
-FILE=./.version
-container_name=rc-alpine
-
 echo "I am checking for the image file."
 result=$(docker images -q realmsg/alpine)
 echo "" && echo "" && echo ""
@@ -26,7 +23,9 @@ if [[ -n "$result" ]]; then
         case $yn in
         [yY])
             echo Ok, we will proceed to deploy the docker image.
-            docker run -itd --name rc-alpine $result
+            echo "What shall we name the container?"
+            read containerName
+            docker run -itd --name $containerName realmsg/alpine:latest
             break
             ;;
         [nN])
