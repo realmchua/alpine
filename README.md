@@ -19,6 +19,12 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox.
 The Alpine base image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images.
 This makes Alpine Linux a great image base for utilities and even production applications.
 
+How to build from the Dockerfile?
+docker build --no-cache=true --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VERSION=1.0.0 -t image_name:tag .
+
+(Example)
+docker build --no-cache=true --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VERSION=1.0.0 -t alpine:3.1.6.1-rc .
+
 How to use my image?
 
 docker run -it \
