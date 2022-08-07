@@ -10,56 +10,33 @@ echo '
 ┃┃┃╰┫┃━┫╭╮┃╰┫┃┃┃┣━━┃╭╯╰╯┃╰╯┃╰━┫╭╮┫┃━┫┃╱┃╰━╯┃╰╯┃┃╰┫╰╯┃┃━┫┃
 ╰╯╰━┻━━┻╯╰┻━┻┻┻╯╰━━╯╰━━━┻━━┻━━┻╯╰┻━━┻╯╱╰━━━┻━━┻┻━┻━━┻━━┻╯'
 
-echo "I am scanning for the Docker Image."
+echo "I am checking for the image file."
 result=$(cat .build)
+echo "" && echo "" && echo ""
 
-while true; do
-    if [[ -n "$result" ]]; then
-        echo "Docker Image Found."
-        echo "$(cat .build)"
-        echo "" && echo "" && echo ""
-        read -p "Do you want to proceed? (y/n) " alpine_yn
+if [[ -n "$result" ]]; then
+    echo "Docker Image found."
+    echo "$(cat .build)"
+    while true; do
+
+        read -p "Do you want to proceed to deploy? (y/n) " alpine_yn
 
         case $alpine_yn in
         [yY])
-            echo "Ok, proceeding to push the image."
-            TagNPushLatest=true
-            echo "" && echo "" && echo ""
+            echo Ok, we will proceed to deploy the docker image.
+            echo "What shall we name the container?"
+            read containerName
+            docker run -itd --name $containerName $(cat .build)
+            break
             ;;
         [nN])
             echo ""
-            TagNPushLatest=false
             echo exiting...
-            echo "" && echo "" && echo ""
+             echo "" && echo "" && echo ""
             exit
             ;;
         *) echo Invalid Response ;;
         esac
-    fi
-    if [[ "$TagNPushLatest" == "true" ]]; then
-        read -p "Do you also want to push a copy as latest? (y/n)" PushAsLatest_yn
 
-        case $PushAsLatest_yn in
-
-        [yY])
-            echo "Pushing to DockerHub as $(cat .build) and realmsg/alpine:latest"
-            docker push $(cat .build)
-            docker tag $(cat .build) realmsg/alpine:latest
-            docker push realmsg/alpine:latest
-            echo "" && echo "" && echo ""
-            break
-            ;;
-        [nN])
-            echo "Ok, we will only push a copy of the image as $(cat .build)"
-            docker push $(cat .build)
-            echo "" && echo "" && echo ""
-            break
-            ;;
-        *)
-            echo ""
-            echo Invalid Response
-            echo "" && echo "" && echo ""
-            ;;
-        esac
-    fi
-done
+    done
+fi
