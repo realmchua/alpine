@@ -1,6 +1,4 @@
-🅐🅛🅟🅘🅝🅔 🅛🅘🅝🅤🅧
-
-An Alpine Linux Image prebuilds with Bash and Gentoo's OpenRC system init service. (40.3 MB)
+An 𝓐𝓵𝓹𝓲𝓷𝓮 𝓛𝓲𝓷𝓾𝔁 Image prebuilds with Bash and Gentoo's OpenRC system init service. (40.3 MB)
 
 Build and maintained by: Realm Chua < realm at mylinuxbox dot cloud>
 
