@@ -20,17 +20,17 @@ cd alpine
 
 ./build.sh (To build the image from the Dockerfile)
 
-./deploy (To deploy the image file)
-
-./push (To push the image to Docker Hub's Repository)
-
 𝗛𝗼𝘄 𝘁𝗼 𝘂𝘀𝗲 𝗺𝘆 𝗶𝗺𝗮𝗴𝗲❓
+
+./deploy (To deploy the image file) or
 
 docker run -it \
   --tty \
   --privileged \
   --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  realmsg/rc-alpine
+  realmsg/alpine:latest
+  
+  ./push (To push the image to Docker Hub's Repository)
   
 D̳i̳s̳c̳l̳a̳i̳m̳e̳r̳: please visit https://pkgs.alpinelinux.org/ to view the license information for the software contained in this image.
 
