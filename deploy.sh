@@ -18,9 +18,9 @@ if [[ -n "$result" ]]; then
     echo "Image found."
     while true; do
 
-        read -p "Do you want to proceed to deploy? (y/n) " yn
+        read -p "Do you want to proceed to deploy? (y/n) " alpine_yn
 
-        case $yn in
+        case $alpine_yn in
         [yY])
             echo Ok, we will proceed to deploy the docker image.
             echo "What shall we name the container?"
@@ -34,7 +34,7 @@ if [[ -n "$result" ]]; then
              echo "" && echo "" && echo ""
             exit
             ;;
-        *) echo invalid response ;;
+        *) echo Invalid Response ;;
         esac
 
     done
