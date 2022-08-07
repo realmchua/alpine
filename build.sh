@@ -25,6 +25,7 @@ while true; do
         read -p "Do you want to proceed? (y/n) " alpine_yn
         case $alpine_yn in
         [yY])
+            echo ""
             echo Ok, we will proceed to build the docker image.
             ./cleanup.sh
             ProceedBuildImage=true
