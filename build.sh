@@ -14,8 +14,8 @@ buildDate() {
     date +%Y.%m.%d.%H.%M
 }
 
-echo "I am checking for any image files."
-result=$(docker images -q realmsg/alpine)
+echo "I am checking for any existing docker image files."
+result=$(cat .build)
 
 while true; do
     if [[ -n "$result" ]]; then
@@ -29,6 +29,7 @@ while true; do
             ./cleanup.sh
             ProceedBuildImage=true
             docker build --no-cache=true --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t realmsg/alpine:$(buildDate) .
+            echo realmsg/alpine:$(buildDate) > .build
             echo "" && echo "" && echo ""
             ;;
         [nN])
@@ -41,9 +42,12 @@ while true; do
         *) echo Invalid Response ;;
         esac
     else
-        echo "No existing image is found. Proceed to build."
+        echo ""
+        echo "No existing docker image is found. Proceed to build."
         docker build --no-cache=true --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t realmsg/alpine:$(buildDate) .
-        docker push realmsg/alpine:$(buildDate)
+        echo realmsg/alpine:$(buildDate) > .build
+        ProceedBuildImage=true
+        echo "" && echo "" && echo ""
     fi
     if [[ "$ProceedBuildImage" == "true" ]]; then
         read -p "Do you want to push this build to Docker Hub? (y/n)" PushToDockerHub_yn
@@ -51,15 +55,13 @@ while true; do
         case $PushToDockerHub_yn in
 
         [yY])
-            echo "Pushing to DockerHub as realmsg/alpine:$(buildDate)"
-            docker push realmsg/alpine:$(buildDate)
-            docker tag realmsg/alpine:$(buildDate) realmsg/alpine:latest
+            echo "Pushing to DockerHub as $(cat .build)"
+            docker push $(cat .build)
             echo "" && echo "" && echo ""
             break
             ;;
         [nN])
-            echo "This image will not be push to the DockerHub, to push run the ./pusb command later on"
-            docker tag realmsg/alpine:$(buildDate) realmsg/alpine:latest
+            echo "This image will not be push to the DockerHub, to push run the ./push command later on"
             echo "" && echo "" && echo ""
             break
             ;;
