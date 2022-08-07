@@ -6,7 +6,7 @@ https://github.com/realmchua/alpine
 
 https://hub.docker.com/repository/docker/realmsg/alpine/
 
-What is Alpine Linux?
+𝗪𝗵𝗮𝘁 𝗶𝘀 𝗔𝗹𝗽𝗶𝗻𝗲 𝗟𝗶𝗻𝘂𝘅❓
 
 Alpine Linux is a Linux distribution built around musl libc and BusyBox.
 The Alpine base image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images.
@@ -32,7 +32,7 @@ docker run -it \
   --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
   realmsg/rc-alpine
   
-Disclaimer: please visit https://pkgs.alpinelinux.org/ to view the license information for the software contained in this image.
+D̳i̳s̳c̳l̳a̳i̳m̳e̳r̳: please visit https://pkgs.alpinelinux.org/ to view the license information for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under additional licenses (such as bash, etc., from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
 
