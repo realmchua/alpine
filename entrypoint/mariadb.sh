@@ -35,12 +35,6 @@ if [[ $? != 0 ]]; then
 else
     exec 3>/dev/null
 fi
-_quit() {
-    echo 'Caught sigquit, sending SIGQUIT to child'
-    kill -s QUIT $child
-}
-
-trap _quit SIGQUIT
 
 echo "" && echo "" && echo "" && echo "" && echo ""
 
