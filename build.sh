@@ -22,9 +22,9 @@ if [[ -n "$result" ]]; then
     echo "" && echo "" && echo ""
     while true; do
 
-        read -p "Do you want to proceed? (y/n) " yn
+        read -p "Do you want to proceed? (y/n) " alpine_yn
 
-        case $yn in
+        case $alpine_yn in
         [yY])
             echo Ok, we will proceed to build the docker image.
             ./cleanup.sh
@@ -38,7 +38,7 @@ if [[ -n "$result" ]]; then
             echo "" && echo "" && echo ""
             exit
             ;;
-        *) echo invalid response ;;
+        *) echo Invalid Response ;;
         esac
     done
 else
