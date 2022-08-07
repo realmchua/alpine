@@ -18,9 +18,9 @@ if [[ -n "$result" ]]; then
     echo "" && echo "" && echo ""
     while true; do
 
-        read -p "Do you want to proceed? (y/n) " yn
+        read -p "Do you want to proceed? (y/n) " alpine_yn
 
-        case $yn in
+        case $alpine_yn in
         [yY])
             echo Ok, we will proceed to push the docker image.
             docker tag $result realmsg/alpine:latest
@@ -33,7 +33,7 @@ if [[ -n "$result" ]]; then
             echo "" && echo "" && echo ""
             exit
             ;;
-        *) echo invalid response ;;
+        *) echo Invalid Response ;;
         esac
     done
 fi
