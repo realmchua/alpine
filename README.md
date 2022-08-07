@@ -28,7 +28,7 @@ docker run -it \
   --tty \
   --privileged \
   --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  realmsg/alpine:latest
+  realmsg/alpine:stable
   
   ./push (To push the image to Docker Hub's Repository)
   
