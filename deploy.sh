@@ -10,7 +10,7 @@ echo '
 ┃┃┃╰┫┃━┫╭╮┃╰┫┃┃┃┣━━┃╭╯╰╯┃╰╯┃╰━┫╭╮┫┃━┫┃╱┃╰━╯┃╰╯┃┃╰┫╰╯┃┃━┫┃
 ╰╯╰━┻━━┻╯╰┻━┻┻┻╯╰━━╯╰━━━┻━━┻━━┻╯╰┻━━┻╯╱╰━━━┻━━┻┻━┻━━┻━━┻╯'
 
-echo "I am checking for the image file."
+echo "I am checking for any existing docker image files."
 result=$(cat .build)
 echo "" && echo "" && echo ""
 
